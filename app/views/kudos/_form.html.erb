@@ -25,16 +25,13 @@
     <li class="list-group-item">
       <div class="input content">
         <label class="form-label"><%= form.label :content %></label>
-        <%= form.text_area :content, class:"form-control", rows:"3" %>
+        <%= form.text_area :content, class:"form-control", rows:"3", placeholder:"Enter your kudo content" %>
       </div>
     </li>
-    <li class="list-group-item">
-      <div class="input collection">
+    <li class="list-group-item"> 
+      <div>
         <label class="form-label"><%= form.label :receiver_id %></label>
-        <select class="form-select" aria-label="Default select example">
-          <%= options_from_collection_for_select(Employee.where.not(id: current_employee), :id, :email) %>
-          <!-- <%= form.collection_select :receiver_id, Employee.where.not(id: current_employee), :id, :email %> -->
-        </select>
+          <%= form.collection_select(:receiver_id, Employee.where.not(id: current_employee), :id, :email, {}, {class:"form-select"}) %>
       </div>
     </li>
   </ul>
