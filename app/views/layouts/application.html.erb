@@ -28,8 +28,10 @@
     <%= render 'home/header' %>
     <!-- alerts section - required by devise and other -->
     <div>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <br>
+      <% if notice || alert %>
+      <%= render 'layouts/alerts' %>
+      <% end %>
     </div>
     <!-- main payload -->
     <div class="container">
