@@ -1,0 +1,44 @@
+<%= form_with(model: kudo) do |form| %>
+<% if kudo.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(kudo.errors.count, "error") %> prohibited this kudo from being saved:</h2>
+
+  <ul>
+    <% kudo.errors.each do |error| %>
+    <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div style="margin: auto">
+  <div class="card" style="width: 48rem; margin: auto">
+    <div class="card-header text-white bg-dark">
+      Add a kudo!
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item bg-light">
+        <div class="input title">
+          <label class="form-label"><%= form.label :title %></label>
+          <%= form.text_field :title, type:"text", class:"form-control", placeholder:"Enter your title" %>
+        </div>
+      </li>
+      <li class="list-group-item bg-light">
+        <div class="input content">
+          <label class="form-label"><%= form.label :content %></label>
+          <%= form.text_area :content, class:"form-control", rows:"3", placeholder:"Enter your kudo content" %>
+        </div>
+      </li>
+      <li class="list-group-item bg-light">
+        <div>
+          <label class="form-label"><%= form.label :receiver_id %></label>
+          <%= form.collection_select(:receiver_id, Employee.where.not(id: current_employee), :id, :email, {}, {class:"form-select"}) %>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <br>
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <%= form.submit class:'btn btn-dark' %>
+  </div>
+  <% end %>
+</div>

@@ -1,0 +1,29 @@
+<h1>View Kudo</h1>
+
+<table class="table table-striped ">
+  <thead class="table-dark">
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Giver</th>
+      <th>Receiver</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= @kudo.title %></td>
+        <td><%= @kudo.content %></td>
+        <td><%= @kudo.giver.email %></td>
+        <td><%= @kudo.receiver.email %></td>
+      </tr>
+  </tbody>
+</table>
+
+<br>
+<hr/>
+<div class="d-grid gap-2 col-6 mx-auto">
+  <%= link_to 'Edit', edit_kudo_path(@kudo), class:"btn btn-dark" %>
+  <%= link_to 'Back', kudos_path, class:"btn btn-secondary" %>
+</div>
+
+

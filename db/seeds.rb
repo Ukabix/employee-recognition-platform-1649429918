@@ -10,5 +10,7 @@
 # queries for postgres
 # \c employee_recognition_development | SELECT * FROM employees;
 1.upto(5) do |i|
-  Employee.create(email: "employee#{i}@test.com", password: 'password')
+  Employee.create!(email: "employee#{i}@test.com", password: 'password')
 end
+
+Kudo.create!(title: 'consoled!', content: 'consoled too!', giver: Employee.find_by(email: 'employee1@test.com'), receiver: Employee.find_by(email: 'employee2@test.com'))
