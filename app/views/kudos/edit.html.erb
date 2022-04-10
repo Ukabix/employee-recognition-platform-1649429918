@@ -3,6 +3,8 @@
 <%= render 'form', kudo: @kudo %>
 
 <hr/>
-<%= link_to 'Show', @kudo, class:"btn btn-primary" %>
-<hr/>
-<%= link_to 'Back', kudos_path, class:"btn btn-secondary" %>
+<div class="d-grid gap-2 col-6 mx-auto">
+  <%= link_to 'Show', @kudo, class:"btn btn-primary" %>
+  <%= link_to 'Back', kudos_path, class:"btn btn-secondary" %>
+</div>
+

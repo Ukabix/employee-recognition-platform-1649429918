@@ -20,8 +20,10 @@
 </table>
 
 <br>
-
-
-<%= link_to 'Edit', edit_kudo_path(@kudo), class:"btn btn-dark" %>
 <hr/>
-<%= link_to 'Back', kudos_path, class:"btn btn-secondary" %>
+<div class="d-grid gap-2 col-6 mx-auto">
+  <%= link_to 'Edit', edit_kudo_path(@kudo), class:"btn btn-dark" %>
+  <%= link_to 'Back', kudos_path, class:"btn btn-secondary" %>
+</div>
+
+
