@@ -1,37 +1,46 @@
 <%= form_with(model: kudo) do |form| %>
-  <% if kudo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(kudo.errors.count, "error") %> prohibited this kudo from being saved:</h2>
+<% if kudo.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(kudo.errors.count, "error") %> prohibited this kudo from being saved:</h2>
 
-      <ul>
-        <% kudo.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% kudo.errors.each do |error| %>
+    <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+<div class="card" style="width: 48rem;">
+  <div class="card-header">
+    Add a kudo!
   </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <div class="input title">
+        <label class="form-label"><%= form.label :title %></label>
+        <%= form.text_field :title, type:"text", class:"form-control", placeholder:"Enter your title" %>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div class="input content">
+        <label class="form-label"><%= form.label :content %></label>
+        <%= form.text_area :content, class:"form-control", rows:"3" %>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div class="input collection">
+        <label class="form-label"><%= form.label :receiver_id %></label>
+        <select class="form-select" aria-label="Default select example">
+          <%= options_from_collection_for_select(Employee.where.not(id: current_employee), :id, :email) %>
+          <!-- <%= form.collection_select :receiver_id, Employee.where.not(id: current_employee), :id, :email %> -->
+        </select>
+      </div>
+    </li>
+  </ul>
+</div>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="field">
-    <%= form.label :giver_id %>
-    <%= form.text_field :giver_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :receiver_id %>
-    <%= form.text_field :receiver_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="actions">
+  <%= form.submit class:'btn btn-primary' %>
+</div>
 <% end %>
