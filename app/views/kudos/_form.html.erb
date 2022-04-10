@@ -12,23 +12,23 @@
 <% end %>
 
 <div class="card" style="width: 48rem;">
-  <div class="card-header">
+  <div class="card-header text-white bg-dark">
     Add a kudo!
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">
+    <li class="list-group-item bg-light">
       <div class="input title">
         <label class="form-label"><%= form.label :title %></label>
         <%= form.text_field :title, type:"text", class:"form-control", placeholder:"Enter your title" %>
       </div>
     </li>
-    <li class="list-group-item">
+    <li class="list-group-item bg-light">
       <div class="input content">
         <label class="form-label"><%= form.label :content %></label>
         <%= form.text_area :content, class:"form-control", rows:"3", placeholder:"Enter your kudo content" %>
       </div>
     </li>
-    <li class="list-group-item"> 
+    <li class="list-group-item bg-light"> 
       <div>
         <label class="form-label"><%= form.label :receiver_id %></label>
           <%= form.collection_select(:receiver_id, Employee.where.not(id: current_employee), :id, :email, {}, {class:"form-select"}) %>
@@ -36,8 +36,8 @@
     </li>
   </ul>
 </div>
-
+<br>
 <div class="actions">
-  <%= form.submit class:'btn btn-primary' %>
+  <%= form.submit class:'btn btn-dark' %>
 </div>
 <% end %>

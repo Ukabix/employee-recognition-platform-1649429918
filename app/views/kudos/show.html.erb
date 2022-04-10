@@ -1,24 +1,27 @@
-<p id="notice"><%= notice %></p>
+<h1>View Kudo</h1>
 
-<p>
-  <strong>Title:</strong>
-  <%= @kudo.title %>
-</p>
+<table class="table table-striped ">
+  <thead class="table-dark">
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Giver</th>
+      <th>Receiver</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= @kudo.title %></td>
+        <td><%= @kudo.content %></td>
+        <td><%= @kudo.giver.email %></td>
+        <td><%= @kudo.receiver.email %></td>
+      </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Content:</strong>
-  <%= @kudo.content %>
-</p>
+<br>
 
-<p>
-  <strong>Giver:</strong>
-  <%= @kudo.giver.email %>
-</p>
 
-<p>
-  <strong>Receiver:</strong>
-  <%= @kudo.receiver.email %>
-</p>
-
-<%= link_to 'Edit', edit_kudo_path(@kudo) %> |
-<%= link_to 'Back', kudos_path %>
+<%= link_to 'Edit', edit_kudo_path(@kudo), class:"btn btn-dark" %>
+<hr/>
+<%= link_to 'Back', kudos_path, class:"btn btn-secondary" %>
