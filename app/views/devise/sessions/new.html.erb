@@ -1,6 +1,5 @@
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
 <div style="margin: auto">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="card" style="width: 48rem; margin: auto">
     <div class="card-header text-white bg-dark">
       Please sign in!
@@ -15,7 +14,7 @@
       <li class="list-group-item bg-light">
         <div class="input content">
           <label class="form-label"><%= f.label :password %></label>
-          <%= f.password_field :password, autocomplete: "current-password", class:"form-control", placeholder:"Enter your email", :required => true %>
+          <%= f.password_field :password, autocomplete: "current-password", class:"form-control", placeholder:"Enter your password", :required => true %>
         </div>
       </li>
       <% if devise_mapping.rememberable? %>
@@ -34,6 +33,5 @@
   </div>
   <% end %>
 </div>
-
-
+<hr/>
 <%= render "devise/shared/links" %>
