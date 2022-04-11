@@ -19,13 +19,13 @@
       <li class="list-group-item bg-light">
         <div class="input title">
           <label class="form-label"><%= form.label :title %></label>
-          <%= form.text_field :title, type:"text", class:"form-control", placeholder:"Enter your title" %>
+          <%= form.text_field :title, type:"text", class:"form-control", placeholder:"Enter your title", :required => true %>
         </div>
       </li>
       <li class="list-group-item bg-light">
         <div class="input content">
           <label class="form-label"><%= form.label :content %></label>
-          <%= form.text_area :content, class:"form-control", rows:"3", placeholder:"Enter your kudo content" %>
+          <%= form.text_area :content, class:"form-control", rows:"3", placeholder:"Enter your kudo content", :required => true %>
         </div>
       </li>
       <li class="list-group-item bg-light">
